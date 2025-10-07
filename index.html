@@ -30,7 +30,7 @@
             font-size: 2.5em; 
         }
         
-        /* 모바일 최적화: 화면 너비 600px 이하일 때 제목 크기 조정 */
+        /* 모바일 최적화: 화면 너비 600px 이하일 때 제목 크기 조정 및 레이아웃 변경 */
         @media (max-width: 600px) {
             h1 {
                 font-size: 1.8em;
@@ -39,9 +39,9 @@
             body {
                 padding: 10px;
             }
-            /* 모바일에서 카드가 너무 크지 않도록 너비 조정 */
+            /* 모바일에서는 1열로 보이게 하여 화면 활용도를 높입니다. */
             .card-list {
-                grid-template-columns: 1fr; /* 모바일에서는 1열로 보이게 합니다. */
+                grid-template-columns: 1fr; 
                 gap: 20px;
             }
         }
@@ -65,7 +65,8 @@
             display: flex;
             flex-direction: column;
             border: 1px solid #e0e0e0;
-            cursor: pointer; /* 마우스 오버 시 클릭 가능함을 표시 */
+            /* 원본 링크로 이동하는 클릭 이벤트 유지 */
+            cursor: pointer; 
         }
 
         .card-item:hover {
@@ -106,13 +107,13 @@
 </head>
 <body>
 
-    <h1>한글날 맞이 카드뉴스 모음</h1>
+    <h1>✨ 한글날 맞이 카드뉴스 모음 🇰🇷</h1>
 
     <div class="card-list">
         
         <div class="card-item" onclick="window.location.href='https://www.canva.com/design/DAG0mLoq4Ko/MlpnyJHg1t6ZOf0uSCWjiA/view?embed'">
             <div class="card-preview">
-                <iframe src="https://www.canva.com/design/DAG0mLoq4Ko/MlpnyJHg1t6ZOf0uSCWjiA/view?embed" loading="lazy" allowfullscreen></iframe>
+                <iframe src="https://www.canva.com/design/DAG0mLoq4Ko/MlpnyJHg1t6ZOf0uSCWjiA/view?embed" allowfullscreen></iframe>
             </div>
             <div class="card-author">
                 김도은, 황선율
