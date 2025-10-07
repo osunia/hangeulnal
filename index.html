@@ -11,7 +11,6 @@
     <style>
         /* 페이지 전체 스타일 */
         body {
-            /* 글꼴은 Gowun Dodum 유지 */
             font-family: 'Gowun Dodum', 'Malgun Gothic', '맑은 고딕', sans-serif;
             background-color: #f4f4f9;
             color: #333;
@@ -21,19 +20,18 @@
 
         /* 큰 제목 스타일 (기본 크기 - PC/태블릿) */
         h1 {
-            /* 제목 글자 색상 #5f5753 유지 */
             color: #5f5753; 
             text-align: center;
             margin-bottom: 40px;
             border-bottom: 2px solid #ddd;
             padding-bottom: 15px;
-            font-size: 2.5em; /* PC/태블릿에서 기본 크기 */
+            font-size: 2.5em; 
         }
         
         /* 모바일 최적화: 화면 너비 600px 이하일 때 제목 크기 조정 */
         @media (max-width: 600px) {
             h1 {
-                font-size: 1.8em; /* 모바일에서 제목 크기 줄이기 */
+                font-size: 1.8em;
                 margin-bottom: 30px;
             }
             body {
@@ -50,7 +48,7 @@
             margin: 0 auto;
         }
 
-        /* 개별 카드 스타일 */
+        /* 개별 카드 스타일 - 클릭 영역으로 사용 */
         .card-item {
             background-color: #fff;
             border-radius: 12px;
@@ -68,15 +66,17 @@
             box-shadow: 0 8px 18px rgba(0, 0, 0, 0.2);
         }
 
-        /* 미리보기(썸네일) 컨테이너 - 초기 로딩 시 보임 */
+        /* 미리보기 컨테이너 */
         .card-preview {
             position: relative;
             width: 100%;
             padding-top: 100%; /* 1:1 비율 */
             flex-grow: 1;
+            /* iframe이 로딩되면 card-placeholder가 사라지므로, 
+               이곳에 로딩 상태를 보여줄 수 있습니다. (이번 코드에서는 생략) */
         }
         
-        /* 썸네일 플레이스홀더 (클릭 유도) 스타일 - NEW! */
+        /* 🌟 썸네일 플레이스홀더 (개선된 디자인) */
         .card-placeholder {
             position: absolute;
             top: 0;
@@ -87,23 +87,29 @@
             flex-direction: column;
             justify-content: center;
             align-items: center;
-            background-color: #e3f2fd; /* 연한 파란색 배경 */
+            background-color: white; /* 배경색 흰색으로 */
             text-align: center;
-            font-size: 1.1em;
-            color: #1a237e;
-            font-weight: bold;
             line-height: 1.5;
             padding: 20px;
             box-sizing: border-box;
-            border: 3px dashed #bbdefb;
+            border: 5px solid #a5d6a7; /* 강조 테두리 */
+            border-radius: 12px;
         }
-
-        .card-placeholder span {
-            display: block;
+        
+        /* 카드 번호 스타일 */
+        .card-placeholder .card-number {
+            font-size: 3em;
+            color: #4caf50; /* 녹색 강조 */
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+        
+        /* 클릭 유도 문구 스타일 */
+        .card-placeholder .click-text {
+            font-size: 1.2em;
+            color: #3f51b5; /* 파란색 강조 */
+            font-weight: bold;
             margin-top: 10px;
-            font-size: 0.9em;
-            color: #424242;
-            font-weight: normal;
         }
 
         /* 실제 iframe 스타일 */
@@ -131,19 +137,16 @@
 </head>
 <body>
 
-    <h1>한글날 맞이 카드뉴스 모음</h1>
+    <h1>✨ 한글날 맞이 카드뉴스 모음 🇰🇷</h1>
 
     <div class="card-list">
         
-        <div class="card-item">
+        <div class="card-item data-link" data-src="https://www.canva.com/design/DAG0mLoq4Ko/MlpnyJHg1t6ZOf0uSCWjiA/view?embed">
             <div class="card-preview">
-                <div class="card-placeholder" data-src="https://www.canva.com/design/DAG0mLoq4Ko/MlpnyJHg1t6ZOf0uSCWjiA/view?embed" onclick="loadIframe(this)">
-                    
-
-[Image of a magnifying glass icon]
-
-                    카드뉴스 미리보기 (클릭)
-                    <span>로딩 속도 개선을 위해 클릭 시 로딩됩니다.</span>
+                <div class="card-placeholder">
+                    <div class="card-number">#1</div>
+                    <div class="card-author-preview">김도은, 황선율</div>
+                    <div class="click-text">미리보기 (클릭)</div>
                 </div>
             </div>
             <div class="card-author">
@@ -151,15 +154,12 @@
             </div>
         </div>
 
-        <div class="card-item">
+        <div class="card-item data-link" data-src="https://www.canva.com/design/DAG0mS3XosI/dBrXn96LtGyd7SN0q99MzA/view?embed">
             <div class="card-preview">
-                <div class="card-placeholder" data-src="https://www.canva.com/design/DAG0mS3XosI/dBrXn96LtGyd7SN0q99MzA/view?embed" onclick="loadIframe(this)">
-                    
-
-[Image of a magnifying glass icon]
-
-                    카드뉴스 미리보기 (클릭)
-                    <span>로딩 속도 개선을 위해 클릭 시 로딩됩니다.</span>
+                <div class="card-placeholder">
+                    <div class="card-number">#2</div>
+                    <div class="card-author-preview">김동욱</div>
+                    <div class="click-text">미리보기 (클릭)</div>
                 </div>
             </div>
             <div class="card-author">
@@ -167,15 +167,12 @@
             </div>
         </div>
 
-        <div class="card-item">
+        <div class="card-item data-link" data-src="https://www.canva.com/design/DAG0mUM1dNk/dVgu5NoDWWC5Tu1JjcSsNA/view?embed">
             <div class="card-preview">
-                <div class="card-placeholder" data-src="https://www.canva.com/design/DAG0mUM1dNk/dVgu5NoDWWC5Tu1JjcSsNA/view?embed" onclick="loadIframe(this)">
-                    
-
-[Image of a magnifying glass icon]
-
-                    카드뉴스 미리보기 (클릭)
-                    <span>로딩 속도 개선을 위해 클릭 시 로딩됩니다.</span>
+                <div class="card-placeholder">
+                    <div class="card-number">#3</div>
+                    <div class="card-author-preview">김민재</div>
+                    <div class="click-text">미리보기 (클릭)</div>
                 </div>
             </div>
             <div class="card-author">
@@ -183,12 +180,12 @@
             </div>
         </div>
         
-        <div class="card-item">
+        <div class="card-item data-link" data-src="https://www.canva.com/design/DAG0mNqMElw/6ZyZq0PImNQS93z3WeIgtA/watch?embed">
             <div class="card-preview">
-                <div class="card-placeholder" data-src="https://www.canva.com/design/DAG0mNqMElw/6ZyZq0PImNQS93z3WeIgtA/watch?embed" onclick="loadIframe(this)">
-                    
-                    카드뉴스 미리보기 (클릭)
-                    <span>로딩 속도 개선을 위해 클릭 시 로딩됩니다.</span>
+                <div class="card-placeholder">
+                    <div class="card-number">#4</div>
+                    <div class="card-author-preview">김보민, 우수빈, 전유빈</div>
+                    <div class="click-text">미리보기 (클릭)</div>
                 </div>
             </div>
             <div class="card-author">
@@ -196,12 +193,12 @@
             </div>
         </div>
 
-        <div class="card-item">
+        <div class="card-item data-link" data-src="https://www.canva.com/design/DAG0mHfWlMs/zZ6jzhUKYObboTtoPwNAOg/view?embed">
             <div class="card-preview">
-                <div class="card-placeholder" data-src="https://www.canva.com/design/DAG0mHfWlMs/zZ6jzhUKYObboTtoPwNAOg/view?embed" onclick="loadIframe(this)">
-                    
-                    카드뉴스 미리보기 (클릭)
-                    <span>로딩 속도 개선을 위해 클릭 시 로딩됩니다.</span>
+                <div class="card-placeholder">
+                    <div class="card-number">#5</div>
+                    <div class="card-author-preview">김수오, 김율아</div>
+                    <div class="click-text">미리보기 (클릭)</div>
                 </div>
             </div>
             <div class="card-author">
@@ -209,12 +206,12 @@
             </div>
         </div>
 
-        <div class="card-item">
+        <div class="card-item data-link" data-src="https://www.canva.com/design/DAG0mKvWiEE/RY47rlw5HE5bJbHAwG9sLg/watch?embed">
             <div class="card-preview">
-                <div class="card-placeholder" data-src="https://www.canva.com/design/DAG0mKvWiEE/RY47rlw5HE5bJbHAwG9sLg/watch?embed" onclick="loadIframe(this)">
-                    
-                    카드뉴스 미리보기 (클릭)
-                    <span>로딩 속도 개선을 위해 클릭 시 로딩됩니다.</span>
+                <div class="card-placeholder">
+                    <div class="card-number">#6</div>
+                    <div class="card-author-preview">김예린, 배서은</div>
+                    <div class="click-text">미리보기 (클릭)</div>
                 </div>
             </div>
             <div class="card-author">
@@ -222,12 +219,12 @@
             </div>
         </div>
 
-        <div class="card-item">
+        <div class="card-item data-link" data-src="https://www.canva.com/design/DAG0mH1sM7E/jcGfWBdxuLdDmazuOzbiMg/view?embed">
             <div class="card-preview">
-                <div class="card-placeholder" data-src="https://www.canva.com/design/DAG0mH1sM7E/jcGfWBdxuLdDmazuOzbiMg/view?embed" onclick="loadIframe(this)">
-                    
-                    카드뉴스 미리보기 (클릭)
-                    <span>로딩 속도 개선을 위해 클릭 시 로딩됩니다.</span>
+                <div class="card-placeholder">
+                    <div class="card-number">#7</div>
+                    <div class="card-author-preview">김진, 김현우, 이도헌</div>
+                    <div class="click-text">미리보기 (클릭)</div>
                 </div>
             </div>
             <div class="card-author">
@@ -235,12 +232,12 @@
             </div>
         </div>
 
-        <div class="card-item">
+        <div class="card-item data-link" data-src="https://www.canva.com/design/DAG0meTCLlo/HGwhoNXoST0O1i_ngFJ21Q/watch?embed">
             <div class="card-preview">
-                <div class="card-placeholder" data-src="https://www.canva.com/design/DAG0meTCLlo/HGwhoNXoST0O1i_ngFJ21Q/watch?embed" onclick="loadIframe(this)">
-                    
-                    카드뉴스 미리보기 (클릭)
-                    <span>로딩 속도 개선을 위해 클릭 시 로딩됩니다.</span>
+                <div class="card-placeholder">
+                    <div class="card-number">#8</div>
+                    <div class="card-author-preview">박민후, 허동준</div>
+                    <div class="click-text">미리보기 (클릭)</div>
                 </div>
             </div>
             <div class="card-author">
@@ -248,12 +245,12 @@
             </div>
         </div>
 
-        <div class="card-item">
+        <div class="card-item data-link" data-src="https://www.canva.com/design/DAG0mJdCQ0o/np5IgUSzTWscG0LWg8a0jQ/view?embed">
             <div class="card-preview">
-                <div class="card-placeholder" data-src="https://www.canva.com/design/DAG0mJdCQ0o/np5IgUSzTWscG0LWg8a0jQ/view?embed" onclick="loadIframe(this)">
-                    
-                    카드뉴스 미리보기 (클릭)
-                    <span>로딩 속도 개선을 위해 클릭 시 로딩됩니다.</span>
+                <div class="card-placeholder">
+                    <div class="card-number">#9</div>
+                    <div class="card-author-preview">송시원</div>
+                    <div class="click-text">미리보기 (클릭)</div>
                 </div>
             </div>
             <div class="card-author">
@@ -261,12 +258,12 @@
             </div>
         </div>
 
-        <div class="card-item">
+        <div class="card-item data-link" data-src="https://www.canva.com/design/DAG0mKtA7H4/LMERO24j1a2buEqjkYa-Pg/view?embed">
             <div class="card-preview">
-                <div class="card-placeholder" data-src="https://www.canva.com/design/DAG0mKtA7H4/LMERO24j1a2buEqjkYa-Pg/view?embed" onclick="loadIframe(this)">
-                    
-                    카드뉴스 미리보기 (클릭)
-                    <span>로딩 속도 개선을 위해 클릭 시 로딩됩니다.</span>
+                <div class="card-placeholder">
+                    <div class="card-number">#10</div>
+                    <div class="card-author-preview">유아린, 이다인</div>
+                    <div class="click-text">미리보기 (클릭)</div>
                 </div>
             </div>
             <div class="card-author">
@@ -274,12 +271,12 @@
             </div>
         </div>
 
-        <div class="card-item">
+        <div class="card-item data-link" data-src="https://www.canva.com/design/DAG0mQYcygw/_7KJe9upVut_PLLE0FfL6w/view?embed">
             <div class="card-preview">
-                <div class="card-placeholder" data-src="https://www.canva.com/design/DAG0mQYcygw/_7KJe9upVut_PLLE0FfL6w/view?embed" onclick="loadIframe(this)">
-                    
-                    카드뉴스 미리보기 (클릭)
-                    <span>로딩 속도 개선을 위해 클릭 시 로딩됩니다.</span>
+                <div class="card-placeholder">
+                    <div class="card-number">#11</div>
+                    <div class="card-author-preview">임찬율</div>
+                    <div class="click-text">미리보기 (클릭)</div>
                 </div>
             </div>
             <div class="card-author">
@@ -290,31 +287,49 @@
     </div>
 
     <script>
+        // DOMContentLoaded: HTML 문서가 완전히 로드된 후 스크립트를 실행합니다.
+        document.addEventListener('DOMContentLoaded', () => {
+            const cardItems = document.querySelectorAll('.card-item.data-link');
+            
+            cardItems.forEach(item => {
+                // 각 카드 항목에 클릭 이벤트 리스너를 추가합니다.
+                item.addEventListener('click', function() {
+                    loadIframe(this);
+                });
+            });
+        });
+
         /**
-         * 플레이스홀더를 클릭하면 iframe을 생성하고 그 자리에 삽입하는 함수
-         * @param {HTMLElement} placeholderElement 클릭된 플레이스홀더 div 요소
+         * 카드 항목을 클릭하면 iframe을 생성하고 그 자리에 삽입하는 함수
+         * @param {HTMLElement} cardItem 클릭된 .card-item 요소
          */
-        function loadIframe(placeholderElement) {
+        function loadIframe(cardItem) {
+            // 이미 iframe이 로딩되었는지 확인합니다. (중복 클릭 방지)
+            if (cardItem.querySelector('iframe')) {
+                return;
+            }
+
             // 1. data-src 속성에 저장된 캔바 링크를 가져옵니다.
-            const url = placeholderElement.getAttribute('data-src');
+            const url = cardItem.getAttribute('data-src');
             
             // 2. 새로운 iframe 요소를 만듭니다.
             const iframe = document.createElement('iframe');
             
-            // 3. iframe의 속성을 설정합니다. (src, allowfullscreen 등)
+            // 3. iframe의 속성을 설정합니다.
             iframe.src = url;
             iframe.setAttribute('allowfullscreen', '');
             
-            // 4. iframe을 플레이스홀더의 부모(card-preview)에 추가합니다.
-            const parent = placeholderElement.parentNode;
-            parent.appendChild(iframe);
-            
-            // 5. 로딩이 완료된 후, 기존의 플레이스홀더(div)를 삭제합니다.
-            //    (로딩 중 바로 삭제해도 되지만, 깔끔한 처리를 위해)
-            //    여기서는 클릭 직후 바로 삭제하여 로딩 상태를 보여주지 않고 바로 iframe을 띄웁니다.
-            placeholderElement.remove();
+            // 4. 기존의 플레이스홀더를 찾습니다.
+            const placeholderElement = cardItem.querySelector('.card-placeholder');
+            const cardPreview = cardItem.querySelector('.card-preview');
 
-            // 참고: 로딩 중 표시를 원할 경우, placeholder를 숨기지 않고 로딩 스피너를 표시할 수도 있습니다!
+            if (cardPreview && placeholderElement) {
+                // 5. iframe을 card-preview에 추가합니다.
+                cardPreview.appendChild(iframe);
+                
+                // 6. 플레이스홀더는 즉시 제거합니다.
+                placeholderElement.remove();
+            }
         }
     </script>
 
