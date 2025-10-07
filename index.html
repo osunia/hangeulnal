@@ -20,7 +20,7 @@
             overflow-x: hidden; /* 가로 스크롤 방지 */
         }
         
-        /* 🌟 팝업 오버레이 스타일 (추가) */
+        /* 팝업 오버레이 스타일 */
         .intro-overlay {
             position: fixed; /* 화면에 고정 */
             top: 0;
@@ -64,6 +64,14 @@
             line-height: 1.5;
         }
         
+        /* 🌟 팝업 내부 작은 글씨 스타일 (추가) */
+        .popup-content .note {
+            display: block; /* 줄 바꿈이 되도록 블록 요소로 만듭니다. */
+            font-size: 0.8em; /* 본문(1.1em)보다 작게 표시 */
+            color: #7d736d; /* 기존 색상보다 약간 연하게 처리 */
+            margin-top: 10px;
+        }
+
         /* 둘러보기 버튼 스타일 */
         #close-overlay-btn {
             padding: 10px 30px;
@@ -169,10 +177,13 @@
     
     <div id="intro-overlay" class="intro-overlay">
         <div class="popup-content">
-            <h2>🎉 학생 작품 모음 페이지 안내</h2>
+            <h2>카드뉴스 모음 페이지 안내</h2>
             <p>
-                한글날을 맞아 **5-2반 학생들이 만든 카드뉴스**를 모은 페이지입니다.<br>
+                10월 9일, 한글날을 맞아<br>
+                5-2반 학생들이 만든 카드뉴스를 모은 페이지입니다.<br>
                 아래에서 작품들을 한 번 둘러보세요!
+                <br><br>
+                <span class="note">*당일 체험학습 등으로 결석한 학생은 다른 주제로 만든 카드뉴스를 올려두었습니다.</span>
             </p>
             <button id="close-overlay-btn">둘러보기</button>
         </div>
@@ -201,14 +212,17 @@
                     if (overlay.style.opacity === '1' || !overlay.classList.contains('hidden')) {
                         return; 
                     }
-                    const iframeSrc = item.querySelector('iframe').src;
-                    window.open(iframeSrc, '_blank'); // 새 탭에서 열기
+                    // iframe 태그가 실제로 로딩되었는지 확인 후 src 가져오기
+                    const iframe = item.querySelector('iframe');
+                    if (iframe && iframe.src) {
+                        window.open(iframe.src, '_blank'); // 새 탭에서 열기
+                    }
                 });
             });
         });
     </script>
     
-    <h1>한글날 맞이 카드뉴스 모음</h1>
+    <h1>✨ 한글날 맞이 카드뉴스 모음 🇰🇷</h1>
 
     <div class="card-list">
         
@@ -247,71 +261,3 @@
                 김보민, 우수빈, 전유빈
             </div>
         </div>
-
-        <div class="card-item">
-            <div class="card-preview">
-                <iframe src="https://www.canva.com/design/DAG0mHfWlMs/zZ6jzhUKYObboTtoPwNAOg/view?embed" loading="lazy" allowfullscreen></iframe>
-            </div>
-            <div class="card-author">
-                김수오, 김율아
-            </div>
-        </div>
-
-        <div class="card-item">
-            <div class="card-preview">
-                <iframe src="https://www.canva.com/design/DAG0mKvWiEE/RY47rlw5HE5bJbHAwG9sLg/watch?embed" loading="lazy" allowfullscreen></iframe>
-            </div>
-            <div class="card-author">
-                김예린, 배서은
-            </div>
-        </div>
-
-        <div class="card-item">
-            <div class="card-preview">
-                <iframe src="https://www.canva.com/design/DAG0mH1sM7E/jcGfWBdxuLdDmazuOzbiMg/view?embed" loading="lazy" allowfullscreen></iframe>
-            </div>
-            <div class="card-author">
-                김진, 김현우, 이도헌
-            </div>
-        </div>
-
-        <div class="card-item">
-            <div class="card-preview">
-                <iframe src="https://www.canva.com/design/DAG0meTCLlo/HGwhoNXoST0O1i_ngFJ21Q/watch?embed" loading="lazy" allowfullscreen></iframe>
-            </div>
-            <div class="card-author">
-                박민후, 허동준
-            </div>
-        </div>
-
-        <div class="card-item">
-            <div class="card-preview">
-                <iframe src="https://www.canva.com/design/DAG0mJdCQ0o/np5IgUSzTWscG0LWg8a0jQ/view?embed" loading="lazy" allowfullscreen></iframe>
-            </div>
-            <div class="card-author">
-                송시원
-            </div>
-        </div>
-
-        <div class="card-item">
-            <div class="card-preview">
-                <iframe src="https://www.canva.com/design/DAG0mKtA7H4/LMERO24j1a2buEqjkYa-Pg/view?embed" loading="lazy" allowfullscreen></iframe>
-            </div>
-            <div class="card-author">
-                유아린, 이다인
-            </div>
-        </div>
-
-        <div class="card-item">
-            <div class="card-preview">
-                <iframe src="https://www.canva.com/design/DAG0mQYcygw/_7KJe9upVut_PLLE0FfL6w/view?embed" loading="lazy" allowfullscreen></iframe>
-            </div>
-            <div class="card-author">
-                임찬율
-            </div>
-        </div>
-
-    </div>
-
-</body>
-</html>
