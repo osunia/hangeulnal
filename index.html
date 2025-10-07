@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>한글날 카드뉴스 모아보기 - 학생 작품</title>
+    <style>
+        /* 페이지 전체 스타일 */
+        body {
+            font-family: 'Malgun Gothic', '맑은 고딕', sans-serif;
+            background-color: #f4f4f9;
+            color: #333;
+            margin: 0;
+            padding: 20px;
+        }
+
+        /* 큰 제목 스타일 */
+        h1 {
+            color: #d80c1d; /* 한글날의 붉은색 느낌 */
+            text-align: center;
+            margin-bottom: 40px;
+            border-bottom: 2px solid #ddd;
+            padding-bottom: 15px;
+        }
+
+        /* 카드뉴스 목록을 담는 컨테이너 스타일 */
+        .card-list {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); /* 화면 크기에 따라 자동으로 카드 배열 */
+            gap: 30px; /* 카드 사이의 간격 */
+            max-width: 1300px;
+            margin: 0 auto;
+        }
+
+        /* 개별 카드 스타일 */
+        .card-item {
+            background-color: #fff;
+            border-radius: 12px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+            transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+            display: flex;
+            flex-direction: column;
+            border: 1px solid #e0e0e0; /* 테두리 추가로 더 깔끔하게 */
+        }
+
+        .card-item:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 18px rgba(0, 0, 0, 0.2);
+        }
+
+        /* 미리보기(iframe) 컨테이너 */
+        .card-preview {
+            position: relative;
+            width: 100%;
+            padding-top: 100%; /* 1:1 비율 */
+            flex-grow: 1;
+        }
+
+        /* 실제 iframe 스타일 */
+        .card-preview iframe {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            border: none;
+        }
+        
+        /* 학생 이름 표시 영역 */
+        .card-author {
+            padding: 15px; /* 패딩을 조금 더 주었습니다 */
+            background-color: #f0f4f9; /* 배경색을 연한 파란색 계열로 변경 */
+            text-align: center;
+            font-size: 1em; /* 글자 크기 조정 */
+            color: #3949ab; /* 색상을 제목 색상 계열로 통일 */
+            font-weight: bold;
+            border-top: 1px solid #cfd8dc; /* 경계선 강조 */
+        }
+
+    </style>
+</head>
+<body>
+
+    <h1>✨ 한글날 기념 학생 카드뉴스 모음 🇰🇷</h1>
+
+    <div class="card-list">
+        
+        <div class="card-item">
+            <div class="card-preview">
+                <iframe src="https://www.canva.com/design/DAG0mLoq4Ko/MlpnyJHg1t6ZOf0uSCWjiA/view?embed" allowfullscreen></iframe>
+            </div>
+            <div class="card-author">
+                김도은, 황선율
+            </div>
+        </div>
+
+        <div class="card-item">
+            <div class="card-preview">
+                <iframe src="https://www.canva.com/design/DAG0mS3XosI/dBrXn96LtGyd7SN0q99MzA/view?embed" allowfullscreen></iframe>
+            </div>
+            <div class="card-author">
+                김동욱
+            </div>
+        </div>
+
+        <div class="card-item">
+            <div class="card-preview">
+                <iframe src="https://www.canva.com/design/DAG0mUM1dNk/dVgu5NoDWWC5Tu1JjcSsNA/view?embed" allowfullscreen></iframe>
+            </div>
+            <div class="card-author">
+                김민재
+            </div>
+        </div>
+        
+        <div class="card-item">
+            <div class="card-preview">
+                <iframe src="https://www.canva.com/design/DAG0mNqMElw/6ZyZq0PImNQS93z3WeIgtA/watch?embed" allowfullscreen></iframe>
+            </div>
+            <div class="card-author">
+                김보민, 우수빈, 전유빈
+            </div>
+        </div>
+
+        <div class="card-item">
+            <div class="card-preview">
+                <iframe src="https://www.canva.com/design/DAG0mHfWlMs/zZ6jzhUKYObboTtoPwNAOg/view?embed" allowfullscreen></iframe>
+            </div>
+            <div class="card-author">
+                김수오, 김율아
+            </div>
+        </div>
+
+        <div class="card-item">
+            <div class="card-preview">
+                <iframe src="https://www.canva.com/design/DAG0mKvWiEE/RY47rlw5HE5bJbHAwG9sLg/watch?embed" allowfullscreen></iframe>
+            </div>
+            <div class="card-author">
+                김예린, 배서은
+            </div>
+        </div>
+
+        <div class="card-item">
+            <div class="card-preview">
+                <iframe src="https://www.canva.com/design/DAG0mH1sM7E/jcGfWBdxuLdDmazuOzbiMg/view?embed" allowfullscreen></iframe>
+            </div>
+            <div class="card-author">
+                김진, 김현우, 이도헌
+            </div>
+        </div>
+
+        <div class="card-item">
+            <div class="card-preview">
+                <iframe src="https://www.canva.com/design/DAG0meTCLlo/HGwhoNXoST0O1i_ngFJ21Q/watch?embed" allowfullscreen></iframe>
+            </div>
+            <div class="card-author">
+                박민후, 허동준
+            </div>
+        </div>
+
+        <div class="card-item">
+            <div class="card-preview">
+                <iframe src="https://www.canva.com/design/DAG0mJdCQ0o/np5IgUSzTWscG0LWg8a0jQ/view?embed" allowfullscreen></iframe>
+            </div>
+            <div class="card-author">
+                송시원
+            </div>
+        </div>
+
+        <div class="card-item">
+            <div class="card-preview">
+                <iframe src="https://www.canva.com/design/DAG0mKtA7H4/LMERO24j1a2buEqjkYa-Pg/view?embed" allowfullscreen></iframe>
+            </div>
+            <div class="card-author">
+                유아린, 이다인
+            </div>
+        </div>
+
+        <div class="card-item">
+            <div class="card-preview">
+                <iframe src="https://www.canva.com/design/DAG0mQYcygw/_7KJe9upVut_PLLE0FfL6w/view?embed" allowfullscreen></iframe>
+            </div>
+            <div class="card-author">
+                임찬율
+            </div>
+        </div>
+
+    </div>
+
+</body>
+</html>
