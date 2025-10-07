@@ -19,14 +19,25 @@
             padding: 20px;
         }
 
-        /* 큰 제목 스타일 */
+        /* 큰 제목 스타일 (기본 크기 - PC/태블릿) */
         h1 {
-            /* 3. 제목 글자 색상 #5f5753로 변경 */
             color: #5f5753; 
             text-align: center;
             margin-bottom: 40px;
             border-bottom: 2px solid #ddd;
             padding-bottom: 15px;
+            font-size: 2.5em; /* PC/태블릿에서 기본 크기 */
+        }
+        
+        /* 🌟 2. 모바일 최적화: 화면 너비 600px 이하일 때 제목 크기 조정 */
+        @media (max-width: 600px) {
+            h1 {
+                font-size: 1.8em; /* 모바일에서 제목 크기 줄이기 */
+                margin-bottom: 30px;
+            }
+            body {
+                padding: 10px; /* 모바일에서 좌우 패딩도 조금 줄여줍니다. */
+            }
         }
 
         /* 카드뉴스 목록을 담는 컨테이너 스타일 */
@@ -79,7 +90,7 @@
             background-color: #f0f4f9;
             text-align: center;
             font-size: 1em;
-            /* 3. 학생 이름 글자 색상 #5f5753로 변경 */
+            /* 글자 색상 #5f5753 유지 */
             color: #5f5753; 
             font-weight: bold;
             border-top: 1px solid #cfd8dc;
