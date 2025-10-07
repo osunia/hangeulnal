@@ -11,7 +11,7 @@
     <style>
         /* 페이지 전체 스타일 */
         body {
-            /* 2. 글꼴을 Gowun Dodum으로 변경 */
+            /* 글꼴은 Gowun Dodum 유지 */
             font-family: 'Gowun Dodum', 'Malgun Gothic', '맑은 고딕', sans-serif;
             background-color: #f4f4f9;
             color: #333;
@@ -21,6 +21,7 @@
 
         /* 큰 제목 스타일 (기본 크기 - PC/태블릿) */
         h1 {
+            /* 제목 글자 색상 #5f5753 유지 */
             color: #5f5753; 
             text-align: center;
             margin-bottom: 40px;
@@ -29,14 +30,14 @@
             font-size: 2.5em; /* PC/태블릿에서 기본 크기 */
         }
         
-        /* 🌟 2. 모바일 최적화: 화면 너비 600px 이하일 때 제목 크기 조정 */
+        /* 모바일 최적화: 화면 너비 600px 이하일 때 제목 크기 조정 */
         @media (max-width: 600px) {
             h1 {
                 font-size: 1.8em; /* 모바일에서 제목 크기 줄이기 */
                 margin-bottom: 30px;
             }
             body {
-                padding: 10px; /* 모바일에서 좌우 패딩도 조금 줄여줍니다. */
+                padding: 10px;
             }
         }
 
@@ -59,6 +60,7 @@
             display: flex;
             flex-direction: column;
             border: 1px solid #e0e0e0;
+            cursor: pointer; /* 클릭할 수 있음을 표시 */
         }
 
         .card-item:hover {
@@ -66,12 +68,42 @@
             box-shadow: 0 8px 18px rgba(0, 0, 0, 0.2);
         }
 
-        /* 미리보기(iframe) 컨테이너 */
+        /* 미리보기(썸네일) 컨테이너 - 초기 로딩 시 보임 */
         .card-preview {
             position: relative;
             width: 100%;
-            padding-top: 100%;
+            padding-top: 100%; /* 1:1 비율 */
             flex-grow: 1;
+        }
+        
+        /* 썸네일 플레이스홀더 (클릭 유도) 스타일 - NEW! */
+        .card-placeholder {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            background-color: #e3f2fd; /* 연한 파란색 배경 */
+            text-align: center;
+            font-size: 1.1em;
+            color: #1a237e;
+            font-weight: bold;
+            line-height: 1.5;
+            padding: 20px;
+            box-sizing: border-box;
+            border: 3px dashed #bbdefb;
+        }
+
+        .card-placeholder span {
+            display: block;
+            margin-top: 10px;
+            font-size: 0.9em;
+            color: #424242;
+            font-weight: normal;
         }
 
         /* 실제 iframe 스타일 */
@@ -90,7 +122,6 @@
             background-color: #f0f4f9;
             text-align: center;
             font-size: 1em;
-            /* 글자 색상 #5f5753 유지 */
             color: #5f5753; 
             font-weight: bold;
             border-top: 1px solid #cfd8dc;
@@ -106,7 +137,14 @@
         
         <div class="card-item">
             <div class="card-preview">
-                <iframe src="https://www.canva.com/design/DAG0mLoq4Ko/MlpnyJHg1t6ZOf0uSCWjiA/view?embed" loading="lazy" allowfullscreen></iframe>
+                <div class="card-placeholder" data-src="https://www.canva.com/design/DAG0mLoq4Ko/MlpnyJHg1t6ZOf0uSCWjiA/view?embed" onclick="loadIframe(this)">
+                    
+
+[Image of a magnifying glass icon]
+
+                    카드뉴스 미리보기 (클릭)
+                    <span>로딩 속도 개선을 위해 클릭 시 로딩됩니다.</span>
+                </div>
             </div>
             <div class="card-author">
                 김도은, 황선율
@@ -115,7 +153,14 @@
 
         <div class="card-item">
             <div class="card-preview">
-                <iframe src="https://www.canva.com/design/DAG0mS3XosI/dBrXn96LtGyd7SN0q99MzA/view?embed" loading="lazy" allowfullscreen></iframe>
+                <div class="card-placeholder" data-src="https://www.canva.com/design/DAG0mS3XosI/dBrXn96LtGyd7SN0q99MzA/view?embed" onclick="loadIframe(this)">
+                    
+
+[Image of a magnifying glass icon]
+
+                    카드뉴스 미리보기 (클릭)
+                    <span>로딩 속도 개선을 위해 클릭 시 로딩됩니다.</span>
+                </div>
             </div>
             <div class="card-author">
                 김동욱
@@ -124,7 +169,14 @@
 
         <div class="card-item">
             <div class="card-preview">
-                <iframe src="https://www.canva.com/design/DAG0mUM1dNk/dVgu5NoDWWC5Tu1JjcSsNA/view?embed" loading="lazy" allowfullscreen></iframe>
+                <div class="card-placeholder" data-src="https://www.canva.com/design/DAG0mUM1dNk/dVgu5NoDWWC5Tu1JjcSsNA/view?embed" onclick="loadIframe(this)">
+                    
+
+[Image of a magnifying glass icon]
+
+                    카드뉴스 미리보기 (클릭)
+                    <span>로딩 속도 개선을 위해 클릭 시 로딩됩니다.</span>
+                </div>
             </div>
             <div class="card-author">
                 김민재
@@ -133,7 +185,11 @@
         
         <div class="card-item">
             <div class="card-preview">
-                <iframe src="https://www.canva.com/design/DAG0mNqMElw/6ZyZq0PImNQS93z3WeIgtA/watch?embed" loading="lazy" allowfullscreen></iframe>
+                <div class="card-placeholder" data-src="https://www.canva.com/design/DAG0mNqMElw/6ZyZq0PImNQS93z3WeIgtA/watch?embed" onclick="loadIframe(this)">
+                    
+                    카드뉴스 미리보기 (클릭)
+                    <span>로딩 속도 개선을 위해 클릭 시 로딩됩니다.</span>
+                </div>
             </div>
             <div class="card-author">
                 김보민, 우수빈, 전유빈
@@ -142,7 +198,11 @@
 
         <div class="card-item">
             <div class="card-preview">
-                <iframe src="https://www.canva.com/design/DAG0mHfWlMs/zZ6jzhUKYObboTtoPwNAOg/view?embed" loading="lazy" allowfullscreen></iframe>
+                <div class="card-placeholder" data-src="https://www.canva.com/design/DAG0mHfWlMs/zZ6jzhUKYObboTtoPwNAOg/view?embed" onclick="loadIframe(this)">
+                    
+                    카드뉴스 미리보기 (클릭)
+                    <span>로딩 속도 개선을 위해 클릭 시 로딩됩니다.</span>
+                </div>
             </div>
             <div class="card-author">
                 김수오, 김율아
@@ -151,7 +211,11 @@
 
         <div class="card-item">
             <div class="card-preview">
-                <iframe src="https://www.canva.com/design/DAG0mKvWiEE/RY47rlw5HE5bJbHAwG9sLg/watch?embed" loading="lazy" allowfullscreen></iframe>
+                <div class="card-placeholder" data-src="https://www.canva.com/design/DAG0mKvWiEE/RY47rlw5HE5bJbHAwG9sLg/watch?embed" onclick="loadIframe(this)">
+                    
+                    카드뉴스 미리보기 (클릭)
+                    <span>로딩 속도 개선을 위해 클릭 시 로딩됩니다.</span>
+                </div>
             </div>
             <div class="card-author">
                 김예린, 배서은
@@ -160,7 +224,11 @@
 
         <div class="card-item">
             <div class="card-preview">
-                <iframe src="https://www.canva.com/design/DAG0mH1sM7E/jcGfWBdxuLdDmazuOzbiMg/view?embed" loading="lazy" allowfullscreen></iframe>
+                <div class="card-placeholder" data-src="https://www.canva.com/design/DAG0mH1sM7E/jcGfWBdxuLdDmazuOzbiMg/view?embed" onclick="loadIframe(this)">
+                    
+                    카드뉴스 미리보기 (클릭)
+                    <span>로딩 속도 개선을 위해 클릭 시 로딩됩니다.</span>
+                </div>
             </div>
             <div class="card-author">
                 김진, 김현우, 이도헌
@@ -169,7 +237,11 @@
 
         <div class="card-item">
             <div class="card-preview">
-                <iframe src="https://www.canva.com/design/DAG0meTCLlo/HGwhoNXoST0O1i_ngFJ21Q/watch?embed" loading="lazy" allowfullscreen></iframe>
+                <div class="card-placeholder" data-src="https://www.canva.com/design/DAG0meTCLlo/HGwhoNXoST0O1i_ngFJ21Q/watch?embed" onclick="loadIframe(this)">
+                    
+                    카드뉴스 미리보기 (클릭)
+                    <span>로딩 속도 개선을 위해 클릭 시 로딩됩니다.</span>
+                </div>
             </div>
             <div class="card-author">
                 박민후, 허동준
@@ -178,7 +250,11 @@
 
         <div class="card-item">
             <div class="card-preview">
-                <iframe src="https://www.canva.com/design/DAG0mJdCQ0o/np5IgUSzTWscG0LWg8a0jQ/view?embed" loading="lazy" allowfullscreen></iframe>
+                <div class="card-placeholder" data-src="https://www.canva.com/design/DAG0mJdCQ0o/np5IgUSzTWscG0LWg8a0jQ/view?embed" onclick="loadIframe(this)">
+                    
+                    카드뉴스 미리보기 (클릭)
+                    <span>로딩 속도 개선을 위해 클릭 시 로딩됩니다.</span>
+                </div>
             </div>
             <div class="card-author">
                 송시원
@@ -187,7 +263,11 @@
 
         <div class="card-item">
             <div class="card-preview">
-                <iframe src="https://www.canva.com/design/DAG0mKtA7H4/LMERO24j1a2buEqjkYa-Pg/view?embed" loading="lazy" allowfullscreen></iframe>
+                <div class="card-placeholder" data-src="https://www.canva.com/design/DAG0mKtA7H4/LMERO24j1a2buEqjkYa-Pg/view?embed" onclick="loadIframe(this)">
+                    
+                    카드뉴스 미리보기 (클릭)
+                    <span>로딩 속도 개선을 위해 클릭 시 로딩됩니다.</span>
+                </div>
             </div>
             <div class="card-author">
                 유아린, 이다인
@@ -196,7 +276,11 @@
 
         <div class="card-item">
             <div class="card-preview">
-                <iframe src="https://www.canva.com/design/DAG0mQYcygw/_7KJe9upVut_PLLE0FfL6w/view?embed" loading="lazy" allowfullscreen></iframe>
+                <div class="card-placeholder" data-src="https://www.canva.com/design/DAG0mQYcygw/_7KJe9upVut_PLLE0FfL6w/view?embed" onclick="loadIframe(this)">
+                    
+                    카드뉴스 미리보기 (클릭)
+                    <span>로딩 속도 개선을 위해 클릭 시 로딩됩니다.</span>
+                </div>
             </div>
             <div class="card-author">
                 임찬율
@@ -204,6 +288,35 @@
         </div>
 
     </div>
+
+    <script>
+        /**
+         * 플레이스홀더를 클릭하면 iframe을 생성하고 그 자리에 삽입하는 함수
+         * @param {HTMLElement} placeholderElement 클릭된 플레이스홀더 div 요소
+         */
+        function loadIframe(placeholderElement) {
+            // 1. data-src 속성에 저장된 캔바 링크를 가져옵니다.
+            const url = placeholderElement.getAttribute('data-src');
+            
+            // 2. 새로운 iframe 요소를 만듭니다.
+            const iframe = document.createElement('iframe');
+            
+            // 3. iframe의 속성을 설정합니다. (src, allowfullscreen 등)
+            iframe.src = url;
+            iframe.setAttribute('allowfullscreen', '');
+            
+            // 4. iframe을 플레이스홀더의 부모(card-preview)에 추가합니다.
+            const parent = placeholderElement.parentNode;
+            parent.appendChild(iframe);
+            
+            // 5. 로딩이 완료된 후, 기존의 플레이스홀더(div)를 삭제합니다.
+            //    (로딩 중 바로 삭제해도 되지만, 깔끔한 처리를 위해)
+            //    여기서는 클릭 직후 바로 삭제하여 로딩 상태를 보여주지 않고 바로 iframe을 띄웁니다.
+            placeholderElement.remove();
+
+            // 참고: 로딩 중 표시를 원할 경우, placeholder를 숨기지 않고 로딩 스피너를 표시할 수도 있습니다!
+        }
+    </script>
 
 </body>
 </html>
